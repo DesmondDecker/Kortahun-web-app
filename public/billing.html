@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kortahun United - Billing</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf-autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>KORTAHUN UNITED</h1>
+            <p>Na we dae take n Na we dae go lef</p>
+        </header>
+
+        <section id="billing-form">
+            <h2>Create New Invoice</h2>
+            <form id="invoiceForm">
+                <div class="grid">
+                    <input type="text" id="custName" placeholder="Customer Name" required>
+                    <input type="number" id="trips" value="1" min="1" placeholder="Trips">
+                    <input type="number" id="unitPrice" placeholder="Unit Price (SLE)" required>
+                    <input type="number" id="liters" placeholder="Liters (Informational)">
+                </div>
+                
+                <div class="bank-details">
+                    <h3>Bank Details</h3>
+                    <input type="text" id="bankName" value="Sierra Leone Commercial Bank">
+                    <input type="text" id="accNumber" value="003001234567890123">
+                    <input type="text" id="swift" value="SLCBSLFM">
+                </div>
+
+                <div class="total-box">
+                    <strong>Estimated Total: <span id="totalDisplay">SLE 0.00</span></strong>
+                </div>
+
+                <button type="submit" class="btn-primary">Save Invoice</button>
+            </form>
+        </section>
+
+        <section id="invoice-list">
+            <h2>Recent Invoices</h2>
+            <table id="billsTable">
+                <thead><tr><th>Bill #</th><th>Customer</th><th>Trips</th><th>Total</th><th>Actions</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </div>
+    <script src="billing.js"></script>
+</body>
+</html>

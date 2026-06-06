@@ -1,0 +1,95 @@
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  directory     = "netlify/functions"
+  node_bundler  = "esbuild"
+
+[functions."*"]
+  timeout = 60
+
+# ─── API routing (each function is its own file) ───────────────
+[[redirects]]
+  from   = "/api/auth/*"
+  to     = "/.netlify/functions/auth"
+  status = 200
+
+[[redirects]]
+  from   = "/api/customers*"
+  to     = "/.netlify/functions/customers"
+  status = 200
+
+[[redirects]]
+  from   = "/api/bills*"
+  to     = "/.netlify/functions/bills"
+  status = 200
+
+[[redirects]]
+  from   = "/api/appointments*"
+  to     = "/.netlify/functions/appointments"
+  status = 200
+
+[[redirects]]
+  from   = "/api/deliveries*"
+  to     = "/.netlify/functions/deliveries"
+  status = 200
+
+[[redirects]]
+  from   = "/api/vehicles*"
+  to     = "/.netlify/functions/vehicles"
+  status = 200
+
+[[redirects]]
+  from   = "/api/drivers*"
+  to     = "/.netlify/functions/drivers"
+  status = 200
+
+[[redirects]]
+  from   = "/api/payments*"
+  to     = "/.netlify/functions/payments"
+  status = 200
+
+[[redirects]]
+  from   = "/api/expenses*"
+  to     = "/.netlify/functions/expenses"
+  status = 200
+
+[[redirects]]
+  from   = "/api/reports*"
+  to     = "/.netlify/functions/reports"
+  status = 200
+
+[[redirects]]
+  from   = "/api/settings*"
+  to     = "/.netlify/functions/settings"
+  status = 200
+
+[[redirects]]
+  from   = "/api/dashboard*"
+  to     = "/.netlify/functions/dashboard"
+  status = 200
+
+[[redirects]]
+  from   = "/api/audit-logs*"
+  to     = "/.netlify/functions/audit-logs"
+  status = 200
+
+[[redirects]]
+  from   = "/api/delivery-notes*"
+  to     = "/.netlify/functions/delivery-notes"
+  status = 200
+
+[[redirects]]
+  from   = "/api/health"
+  to     = "/.netlify/functions/health"
+  status = 200
+
+# ─── SPA catch-all ────────────────────────────────────────────
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
